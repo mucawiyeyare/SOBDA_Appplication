@@ -4,6 +4,7 @@ import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { errorMessage } from '../../api/client';
 import { requestsApi } from '../../api/requests';
 import { Button } from '../../components/Button';
+import { DashboardHeader } from '../../components/DashboardHeader';
 import { FormSheet } from '../../components/FormSheet';
 import { Input } from '../../components/Input';
 import { QueryList } from '../../components/QueryList';
@@ -43,6 +44,7 @@ export function DonorRequestsScreen() {
 
   return (
     <Screen>
+      <DashboardHeader />
       <ScreenTitle title="Blood requests" subtitle="Hospitals asking for your help" />
       <Chips options={STATUSES} value={status} onChange={setStatus} allLabel="All" />
       <QueryList

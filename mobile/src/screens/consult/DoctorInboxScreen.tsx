@@ -4,6 +4,7 @@ import { useQuery } from '@tanstack/react-query';
 import { useNavigation } from '@react-navigation/native';
 import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { consultApi } from '../../api/public';
+import { DashboardHeader } from '../../components/DashboardHeader';
 import { QueryList } from '../../components/QueryList';
 import { Screen } from '../../components/Screen';
 import { Avatar, Badge, BloodBadge, Card, ScreenTitle } from '../../components/ui';
@@ -17,6 +18,7 @@ export function DoctorInboxScreen() {
   const inbox = useQuery({ queryKey: ['consult', 'inbox'], queryFn: consultApi.doctorInbox, refetchInterval: 20_000 });
   return (
     <Screen>
+      <DashboardHeader />
       <ScreenTitle title="Donor questions" subtitle="Answer donors' health questions" />
       <QueryList
         query={inbox}

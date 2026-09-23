@@ -3,15 +3,14 @@ import { FlatList, RefreshControl, StyleSheet, Text, View } from 'react-native';
 import { useQuery } from '@tanstack/react-query';
 import { Ionicons } from '@expo/vector-icons';
 import { adminApi, ActivityItem } from '../../api/admin';
+import { DashboardHeader } from '../../components/DashboardHeader';
 import { Screen } from '../../components/Screen';
 import { EmptyView, ErrorView, LoadingView } from '../../components/StateView';
 import { colors, radius } from '../../constants/theme';
-import { useAuthStore } from '../../store/authStore';
 
 type IconName = React.ComponentProps<typeof Ionicons>['name'];
 
 export function AdminDashboardScreen() {
-  const user = useAuthStore((s) => s.user);
   const stats = useQuery({ queryKey: ['admin', 'stats'], queryFn: adminApi.stats });
   const activity = useQuery({ queryKey: ['admin', 'activity'], queryFn: () => adminApi.recentActivity(20) });
 
@@ -21,10 +20,11 @@ export function AdminDashboardScreen() {
     void activity.refetch();
   };
 
-  if (stats.isLoading) return <Screen><LoadingView /></Screen>;
+  if (stats.isLoading) return <Screen><DashboardHeader subtitle="System overview" /><LoadingView /></Screen>;
   if (stats.isError) {
     return (
       <Screen>
+        <DashboardHeader subtitle="System overview" />
         <ErrorView message={stats.error.message} onRetry={refresh} />
       </Screen>
     );
@@ -47,8 +47,7 @@ export function AdminDashboardScreen() {
         refreshControl={<RefreshControl refreshing={refreshing} onRefresh={refresh} tintColor={colors.brand} />}
         ListHeaderComponent={
           <View>
-            <Text style={styles.hello}>Hello, {user?.name}</Text>
-            <Text style={styles.sub}>System overview</Text>
+            <DashboardHeader subtitle="System overview" />
             <View style={styles.grid}>
               {cards.map((c) => (
                 <View key={c.label} style={styles.card}>
