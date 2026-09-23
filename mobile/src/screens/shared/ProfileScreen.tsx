@@ -16,6 +16,7 @@ import { ErrorView, LoadingView } from '../../components/StateView';
 import { Avatar, Card, Row, ScreenTitle } from '../../components/ui';
 import { colors } from '../../constants/theme';
 import { useAuthStore } from '../../store/authStore';
+import { confirmAction } from '../../utils/confirm';
 
 export function ProfileScreen() {
   const nav = useNavigation<NativeStackNavigationProp<MainStackParamList>>();
@@ -87,10 +88,7 @@ export function ProfileScreen() {
     ]);
 
   const confirmLogout = () =>
-    Alert.alert('Sign out', 'Are you sure you want to sign out?', [
-      { text: 'Cancel', style: 'cancel' },
-      { text: 'Sign out', style: 'destructive', onPress: () => void logout() },
-    ]);
+    confirmAction('Sign out', 'Are you sure you want to sign out?', 'Sign out', () => void logout());
 
   if (profile.isLoading) return <Screen><LoadingView /></Screen>;
   if (profile.isError) return <Screen><ErrorView message={profile.error.message} onRetry={() => profile.refetch()} /></Screen>;

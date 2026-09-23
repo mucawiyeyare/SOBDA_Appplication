@@ -47,9 +47,18 @@ export const useAuthStore = create<AuthState>((set, get) => ({
   },
 
   logout: async () => {
-    // Must run while the token still exists so the API accepts the request.
-    await unregisterPush();
-    await clearSession();
+    // Each cleanup step is best-effort: a storage or network hiccup here must never leave the
+    // user stuck signed in with no way out, so state is always cleared no matter what fails above.
+    try {
+      await unregisterPush(); // must run first, while the token still exists for the API call
+    } catch (e) {
+      if (__DEV__) console.warn('Push unregister failed during logout:', e);
+    }
+    try {
+      await clearSession();
+    } catch (e) {
+      if (__DEV__) console.warn('Clearing stored session failed during logout:', e);
+    }
     set({ user: null, token: null });
   },
 }));

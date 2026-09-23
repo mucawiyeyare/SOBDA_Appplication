@@ -1,5 +1,5 @@
 import React from 'react';
-import { Alert, Pressable, StyleSheet, Text, View } from 'react-native';
+import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
@@ -7,6 +7,7 @@ import { colors, radius, spacing } from '../constants/theme';
 import type { MainStackParamList } from '../navigation/types';
 import { useAuthStore } from '../store/authStore';
 import type { Role } from '../types';
+import { confirmAction } from '../utils/confirm';
 
 const ROLE_LABEL: Record<Role, string> = {
   donor: 'Blood donor',
@@ -40,10 +41,7 @@ export function DashboardHeader({ subtitle }: Props) {
     .toUpperCase();
 
   const confirmLogout = () =>
-    Alert.alert('Sign out', 'Are you sure you want to sign out?', [
-      { text: 'Cancel', style: 'cancel' },
-      { text: 'Sign out', style: 'destructive', onPress: () => void logout() },
-    ]);
+    confirmAction('Sign out', 'Are you sure you want to sign out?', 'Sign out', () => void logout());
 
   return (
     <View style={styles.wrap}>
