@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="32 34 176 205" width="240" height="280" role="img" aria-label="Illustrated portrait of Dr. Ubax Farax">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#eef5ff"/>
+      <stop offset="1" stop-color="#c7dcf8"/>
+    </linearGradient>
+    <linearGradient id="hijab" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2d69b4"/>
+      <stop offset="1" stop-color="#153f7c"/>
+    </linearGradient>
+  </defs>
+  <rect width="240" height="280" fill="url(#bg)"/>
+
+  <!-- white coat -->
+  <path d="M6 280 C6 222 54 200 120 200 C186 200 234 222 234 280 Z" fill="#ffffff"/>
+  <path d="M6 280 C6 222 54 200 120 200 C186 200 234 222 234 280" fill="none" stroke="#d3e1f3" stroke-width="2"/>
+  <!-- shirt -->
+  <path d="M90 203 L120 266 L150 203 Q120 216 90 203Z" fill="#0a2f63"/>
+  <path d="M90 203 L108 280 M150 203 L132 280" stroke="#d3e1f3" stroke-width="2" fill="none"/>
+  <!-- stethoscope -->
+  <path d="M95 208 C84 248 108 268 120 268 C132 268 156 248 145 208" fill="none" stroke="#3b4252" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="120" cy="270" r="8" fill="#a3afc2" stroke="#3b4252" stroke-width="3"/>
+
+  <!-- hijab -->
+  <path d="M120 48 C64 48 56 108 60 148 C62 180 76 202 94 216 Q120 230 146 216 C164 202 178 180 180 148 C184 108 176 48 120 48Z" fill="url(#hijab)"/>
+  <!-- soft inner shadow, then face -->
+  <ellipse cx="120" cy="128" rx="39" ry="46" fill="#0d3266" opacity="0.35"/>
+  <ellipse cx="120" cy="129" rx="35" ry="43" fill="#b57a55"/>
+
+  <!-- face details -->
+  <path d="M98 113 Q106 108 114 113" fill="none" stroke="#2a1a12" stroke-width="2.6" stroke-linecap="round"/>
+  <path d="M126 113 Q134 108 142 113" fill="none" stroke="#2a1a12" stroke-width="2.6" stroke-linecap="round"/>
+  <ellipse cx="106" cy="126" rx="3.6" ry="4.2" fill="#2a1a12"/>
+  <ellipse cx="134" cy="126" rx="3.6" ry="4.2" fill="#2a1a12"/>
+  <path d="M120 130 Q115 142 121 144" fill="none" stroke="#8f5a3c" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="98" cy="144" r="6.5" fill="#d98a6a" opacity="0.32"/>
+  <circle cx="142" cy="144" r="6.5" fill="#d98a6a" opacity="0.32"/>
+  <path d="M107 153 Q120 164 133 153" fill="none" stroke="#7a2f2a" stroke-width="3" stroke-linecap="round"/>
+</svg>

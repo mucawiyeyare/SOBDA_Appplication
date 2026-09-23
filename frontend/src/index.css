@@ -1,0 +1,58 @@
+@import "tailwindcss";
+
+/* Public-site design tokens (navy / red / soft blue), matching the SOBDA mockups */
+@theme {
+  --color-navy: #0a2f63;
+  --color-navy-deep: #072553;
+  --color-brand: #c8101e;
+  --color-brand-dark: #a80d19;
+  --color-soft: #f6f7f9;
+  --color-line: #e5e7eb;
+  --font-brand: "Poppins", ui-sans-serif, system-ui, sans-serif;
+  --font-script: "Caveat", cursive;
+}
+
+/* Fade the edges of a finished hero picture into the hero background */
+.hero-fade {
+  -webkit-mask-image: linear-gradient(to bottom, transparent, #000 12%, #000 88%, transparent);
+  mask-image: linear-gradient(to bottom, transparent, #000 12%, #000 88%, transparent);
+}
+@media (min-width: 1024px) {
+  .hero-fade {
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 16%),
+      linear-gradient(to bottom, transparent, #000 12%, #000 88%, transparent);
+    -webkit-mask-composite: source-in;
+    mask-image: linear-gradient(to right, transparent, #000 16%),
+      linear-gradient(to bottom, transparent, #000 12%, #000 88%, transparent);
+    mask-composite: intersect;
+  }
+}
+
+/* Dark theme: toggled by the moon/sun button (adds .dark to <html>) */
+html.dark {
+  color-scheme: dark;
+  --color-soft: #1e293b;
+  --color-line: #334155;
+}
+html.dark body { background: #0b1220; color: #e2e8f0; }
+html.dark .bg-white,
+html.dark .bg-white\/95 { background-color: #0f172a; }
+html.dark .bg-slate-50,
+html.dark .bg-slate-100 { background-color: #1e293b; }
+html.dark .bg-sky-50,
+html.dark .bg-red-50 { background-color: #1e293b; }
+html.dark .hover\:bg-sky-50:hover,
+html.dark .hover\:bg-soft:hover,
+html.dark .hover\:bg-slate-200:hover { background-color: #334155; }
+html.dark .text-navy,
+html.dark .text-slate-800,
+html.dark .text-slate-900,
+html.dark .text-slate-700 { color: #e2e8f0; }
+html.dark .text-slate-600,
+html.dark .text-slate-500 { color: #94a3b8; }
+html.dark .text-sky-800,
+html.dark .text-sky-700 { color: #7dd3fc; }
+html.dark .border-sky-100,
+html.dark .border-sky-200 { border-color: #334155; }
+html.dark .shadow-sm,
+html.dark .shadow-md { --tw-shadow-color: rgba(0, 0, 0, 0.5); }

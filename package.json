@@ -1,0 +1,23 @@
+{
+  "name": "sobda-blood-donation-system",
+  "version": "1.0.0",
+  "description": "SOBDA - National Blood Donation Management System for Somalia",
+  "main": "backend/server.js",
+  "type": "module",
+  "scripts": {
+    "build": "cd frontend && npm install && npm run build && cd ../backend && npm install",
+    "start": "cd backend && npm start",
+    "dev:backend": "cd backend && npm run dev",
+    "dev:frontend": "cd frontend && npm run dev"
+  },
+  "keywords": [
+    "blood-donation",
+    "mern",
+    "somalia",
+    "react",
+    "express",
+    "mongodb"
+  ],
+  "author": "SOBDA",
+  "license": "ISC"
+}

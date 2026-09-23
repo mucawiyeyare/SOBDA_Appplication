@@ -1,0 +1,37 @@
+{
+  "expo": {
+    "name": "SOBDA",
+    "slug": "sobda",
+    "scheme": "sobda",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "org.sobda.dhiigkaal",
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "Your location is used to match you with nearby blood requests.",
+        "NSCameraUsageDescription": "The camera is used to take your profile photo.",
+        "NSPhotoLibraryUsageDescription": "Photos are used to choose your profile picture."
+      }
+    },
+    "android": {
+      "package": "org.sobda.dhiigkaal",
+      "adaptiveIcon": {
+        "backgroundColor": "#E6F4FE",
+        "foregroundImage": "./assets/android-icon-foreground.png",
+        "backgroundImage": "./assets/android-icon-background.png",
+        "monochromeImage": "./assets/android-icon-monochrome.png"
+      },
+      "predictiveBackGestureEnabled": false
+    },
+    "plugins": [
+      "expo-secure-store",
+      "expo-notifications",
+      "expo-location",
+      "expo-image-picker",
+      "expo-font"
+    ]
+  }
+}
